@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>aa-puppet-read</display-name>
+  
+  <context-param>
+  	<param-name>puppetConfigFile</param-name>
+<!--   	 <param-value>C:\\RELEASE-NOTES.txt</param-value> -->
+  	<param-value>/home/aapoc/RELEASE-NOTES.txt</param-value>
+  </context-param>
+  
+  <servlet>
+  	<servlet-name>LoadPuppetConfigFileController</servlet-name>
+  	<servlet-class>com.hpe.controller.LoadPuppetConfigController</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoadPuppetConfigFileController</servlet-name>
+  	<url-pattern>/load</url-pattern>
+  </servlet-mapping>
+</web-app>
