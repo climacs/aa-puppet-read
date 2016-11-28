@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<project name="aa-puppet-read-master" basedir="." default="build">
+   <property name="src.dir" value="src"/>
+   <property name="web.dir" value="WebContent"/>
+   <property name="build.dir" value="${web.dir}/WEB-INF/classes"/>
+   <property name="name" value="fax"/>
+
+   <path id="master-classpath">
+      <fileset dir="${web.dir}/WEB-INF/lib">
+         <include name="*.jar"/>
+      </fileset>
+      <pathelement path="${build.dir}"/>
+   </path>
+
+   <target name="build" description="Compile source tree java files">
+      <mkdir dir="${build.dir}"/>
+      <javac destdir="${build.dir}" source="1.8" target="1.8">
+         <src path="${src.dir}"/>
+         <classpath refid="master-classpath"/>
+      </javac>
+   </target>
+ 
+   <target name="clean" description="Clean output directories">
+      <delete>
+         <fileset dir="${build.dir}">
+            <include name="**/*.class"/>
+         </fileset>
+      </delete>
+   </target>
+   
+   <target name="build-war">
+
+   <war destfile="aa-puppet-read-master.war" webxml="${web.dir}/WEB-INF/web.xml">
+      <fileset dir="${web.dir}">
+         <include name="**/*.*"/>
+      </fileset>
+   </war>
+   
+</target>
+</project>
