@@ -41,7 +41,7 @@ public class LoadPuppetConfigController extends HttpServlet {
 
 		} catch (IOException e) {
 			
-			request.setAttribute("errorMessage", "Version not found in " + fileName);
+			request.setAttribute("errorMessage", "No Apache Log4j installed.");
 			
 			e.printStackTrace();
 		}
